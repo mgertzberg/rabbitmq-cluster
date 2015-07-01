@@ -21,7 +21,7 @@ if [ ! -f /var/lib/rabbitmq/reset ]; then
         rabbitmqctl add_user ${RABBITMQ_USER} ${RABBITMQ_PASSWORD}
         rabbitmqctl set_permissions -p / ${RABBITMQ_USER} ".*" ".*" ".*"
         rabbitmqctl set_user_tags ${RABBITMQ_USER} administrator
-        rabbitmqctl clear_password guest
+        rabbitmqctl delete_user guest
     else
         rabbitmqctl stop_app
         rabbitmqctl reset
